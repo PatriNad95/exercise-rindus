@@ -1,0 +1,44 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Search pokemon</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Name" #input />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element">
+        {{ element.name }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sprite">
+      <mat-header-cell *matHeaderCellDef>Sprite</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element">
+        <img [src]="element.sprite" alt="{{ element.name }}" width="50" />
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="goToDetail(row.name)"
+      class="clickable-row"
+    ></mat-row>
+  </table>
+  <mat-paginator
+    (page)="getPage($event)"
+    [hidePageSize]="true"
+    [length]="dataPokemon.count"
+    [pageSize]="20"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

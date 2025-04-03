@@ -1,0 +1,62 @@
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.pagination-controls {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px 8px 0px 0px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-table .mat-mdc-header-cell {
+  background: #0288d1;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+.mat-mdc-paginator {
+  background-color: #0288d1;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-row {
+  color: black;
+}
+
+:host {
+  --mdc-filled-text-field-container-color: white;
+  --mdc-filled-text-field-ink-color: black;
+  --mdc-filled-text-field-label-text-color: black;
+  --mdc-filled-text-field-focus-label-text-color: black;
+  --mdc-filled-text-field-caret-color: black;
+  --mdc-filled-text-field-input-text-color: black;
+  --mdc-filled-text-field-active-indicator-color: black;
+  --mdc-filled-text-field-focus-active-indicator-color: black;
+}

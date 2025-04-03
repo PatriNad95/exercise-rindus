@@ -1,0 +1,10 @@
+<div class="container text-center" *ngIf="pokemon">
+  <h1 class="text-capitalize">{{ pokemon.name }}</h1>
+  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
+  <p><strong>Types:</strong> iRÁN LOS TIPOS</p>
+  <p>
+    <strong>Abilities:</strong>
+    iRÁN LAS HABILIDADES
+  </p>
+  <button class="btn btn-secondary">Back</button>
+</div>
