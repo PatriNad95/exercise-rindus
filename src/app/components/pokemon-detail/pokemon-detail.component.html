@@ -1,10 +1,48 @@
-<div class="container text-center" *ngIf="pokemon">
-  <h1 class="text-capitalize">{{ pokemon.name }}</h1>
-  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
-  <p><strong>Types:</strong> iRÁN LOS TIPOS</p>
-  <p>
-    <strong>Abilities:</strong>
-    iRÁN LAS HABILIDADES
-  </p>
-  <button class="btn btn-secondary">Back</button>
+<div class="global">
+  <div class="card-container">
+    <div class="go-back">
+      <button mat-button (click)="goBackList()">Go back</button>
+    </div>
+    <mat-card class="card-class" appearance="outlined" *ngIf="pokemon">
+      <mat-card-header>
+        <mat-card-title>{{ pokemon.name }}</mat-card-title>
+        <mat-card-subtitle>{{ pokemon.base_experience }} Exp</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image-container">
+        <img
+          mat-card-md-image
+          [src]="pokemon.sprites.front_default"
+          alt="{{ pokemon.name }}"
+        />
+      </div>
+      <mat-card-actions class="button-container">
+        <button mat-flat-button (click)="getAbilities()">Abilities</button>
+        <button mat-flat-button (click)="getTypes()">Types</button>
+        <button mat-flat-button (click)="getLocation()">Location areas</button>
+      </mat-card-actions>
+      <mat-card-content>
+        <div *ngIf="abilities.length">
+          <h4>Abilities</h4>
+          @for (ability of abilities; track ability) {
+          <h5>{{ ability.name }}:</h5>
+          <p>{{ ability.effect }}</p>
+          }
+        </div>
+        <div *ngIf="types.length">
+          <h4>Types</h4>
+          <div class="type-container">
+            @for (type of types; track type) {
+            <h5>{{ type }}</h5>
+            }
+          </div>
+        </div>
+        <div *ngIf="locations.length">
+          <h4>Location Areas</h4>
+          @for (location of locations; track location) {
+          <h5>{{ location }}</h5>
+          }
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
