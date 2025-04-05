@@ -108,7 +108,6 @@ export class PokemonDetailComponent implements OnInit {
       .getPokemonData(this.pokemon.location_area_encounters)
       .subscribe({
         next: (data) => {
-          console.log(data);
           data.forEach((location: LocationAreasResponse) => {
             this.locations.push(
               _.capitalize(location.location_area.name).replaceAll('-', ' ')

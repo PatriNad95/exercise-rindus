@@ -60,3 +60,21 @@ table {
   --mdc-filled-text-field-active-indicator-color: black;
   --mdc-filled-text-field-focus-active-indicator-color: black;
 }
+
+@media (width < 700px) {
+  .mat-mdc-paginator {
+    border-radius: 0px;
+  }
+
+  table {
+    border-radius: 0px;
+  }
+
+  .container {
+    max-width: none;
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}
