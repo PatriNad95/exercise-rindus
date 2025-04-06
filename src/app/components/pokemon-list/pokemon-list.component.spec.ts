@@ -10,7 +10,7 @@ import {
   when,
 } from 'ts-mockito';
 import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { PokemonListResponse } from '../../utils/pokemon.model';
 import { PageEvent } from '@angular/material/paginator';
 

@@ -51,26 +51,17 @@ describe('PokemonDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should call getPokemonDetails on init', () => {
-  //   when(mockPokemonService.getPokemonDetails).thenReturn(() =>
-  //     of(mockPokemonDetail)
-  //   );
-  //   mockActivatedRoute = {
-  //     snapshot: {
-  //       paramMap: {
-  //         get: (key: string) => {
-  //           if (key === 'name') return 'pikachu';
-  //           return null;
-  //         },
-  //       } as ParamMap,
-  //     },
-  //   } as unknown as ActivatedRoute;
-  //   component.ngOnInit();
-  //   expect(mockPokemonService.getPokemonDetails).toHaveBeenCalledWith(
-  //     'pikachu'
-  //   );
-  //   expect(component.pokemon.name).toBe('Pikachu');
-  // });
+  it('should call getPokemonDetails on init', () => {
+    when(mockPokemonService.getPokemonDetails('pikachu')).thenReturn(
+      of(mockPokemonDetail)
+    );
+    when(mockActivatedRoute.snapshot).thenReturn({
+      params: { name: 'pikachu' },
+    } as any);
+    component.ngOnInit();
+    verify(mockPokemonService.getPokemonDetails('pikachu')).once();
+    expect(component.pokemon.name).toBe('Pikachu');
+  });
 
   it('should fetch abilities and populate array', () => {
     const abilityMockResponse = {
@@ -121,6 +112,6 @@ describe('PokemonDetailComponent', () => {
 
   it('should navigate back to list', () => {
     component.goBackList();
-    verify(mockRouter.navigate(strictEqual(['../']), anything())).never();
+    verify(mockRouter.navigate(anything(), anything())).once();
   });
 });

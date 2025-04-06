@@ -30,12 +30,10 @@ export class PokemonDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.route.snapshot);
-    const name: string | null = this.route.snapshot.paramMap.get('name');
+    const name: string | null = this.route.snapshot.params['name'];
     this.pokemonService.getPokemonDetails(name!).subscribe({
       next: (data) => {
         this.pokemon = { ...data, name: _.capitalize(data.name) };
-        console.log(this.pokemon);
       },
       error: (err) => console.error('Error obtaining pokemon detail:', err),
     });

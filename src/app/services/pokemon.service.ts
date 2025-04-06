@@ -32,9 +32,7 @@ export class PokemonService {
     return this.http.get<any>(apiUrl).pipe(
       catchError((error) => {
         console.error('Error fetching Pokémon:', error);
-        return throwError(
-          () => new Error('Could not fetch Pokémon abilities.')
-        );
+        return throwError(() => new Error('Could not fetch Pokémon data.'));
       })
     );
   }
